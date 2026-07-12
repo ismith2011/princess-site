@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Princess Kia | Magical Learning Adventures',
-  description: 'Songs, phonics, colors, numbers, printables, and magical learning adventures for Little Royals.',
+  description: 'Songs, phonics, adventures, worksheets, and magical learning for little royals.',
 };
 
 export default function RootLayout({ children }) {

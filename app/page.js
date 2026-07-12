@@ -1,88 +1,127 @@
-const rooms = [
-  { emoji: '🌈', title: 'Rainbow Garden', subtitle: 'Colors', href: '/royal-library/rainbow-garden', image: '/images/princess-heart-hands-bedroom.jpeg', text: 'Explore colors through worksheets, videos, and coloring pages.' },
-  { emoji: '🔤', title: 'Alphabet Academy', subtitle: 'Letters', href: '/royal-library/alphabet-academy', image: '/images/princess-pointing.jpeg', text: 'Practice letters, sounds, tracing, and first words.' },
-  { emoji: '🔢', title: 'Counting Castle', subtitle: 'Numbers', href: '/royal-library/counting-castle', image: '/images/princess-excited.jpeg', text: 'Count crowns, trace numbers, and build math confidence.' },
-  { emoji: '⭐', title: 'Shape Kingdom', subtitle: 'Shapes', href: '/royal-library/shape-kingdom', image: '/images/princess-smile-hands.jpeg', text: 'Learn circles, squares, triangles, stars, and hearts.' },
-  { emoji: '🦁', title: 'Animal Adventure Safari', subtitle: 'Animals', href: '/royal-library/animal-adventure-safari', image: '/images/princess-side-profile.jpeg', text: 'Meet animals and learn about habitats and sounds.' },
-  { emoji: '🎵', title: 'Royal Music Hall', subtitle: 'Music', href: '/royal-library/royal-music-hall', image: '/images/princess-wave.jpeg', text: 'Sing, dance, and learn with Princess Kia songs.' },
+const learningRooms = [
+  { emoji: '🌈', title: 'Rainbow Garden', text: 'Learn colors with royal worksheets and activities.' },
+  { emoji: '🔤', title: 'Alphabet Academy', text: 'Practice letters, sounds, and first words.' },
+  { emoji: '🔢', title: 'Counting Castle', text: 'Count, trace numbers, and build math confidence.' },
+  { emoji: '🎵', title: 'Music Hall', text: 'Sing along with Princess Kia songs.' },
+  { emoji: '🎨', title: 'Art Studio', text: 'Coloring pages, crafts, and creative fun.' },
+  { emoji: '📚', title: 'Royal Library', text: 'Free printables and learning packs.' },
 ];
+
+const products = ['Colors Workbook', 'Alphabet Workbook', 'Numbers Workbook', 'Shapes Workbook'];
 
 export default function Home() {
   return (
     <main>
-      <Nav />
-      <section className="heroBanner" id="home">
-        <img src="/images/hero-banner.jpeg" alt="Princess Kia Magical Learning Adventures" />
+      <nav className="nav">
+        <a className="brand" href="#home">👑 Princess Kia</a>
+        <div className="navLinks">
+          <a href="#watch">Watch</a>
+          <a href="#library">Royal Library</a>
+          <a href="#boutique">Boutique</a>
+          <a href="#about">Meet Kia</a>
+        </div>
+      </nav>
+
+      <section id="home" className="hero">
+        <img src="/images/princess-kia-hero.jpeg" alt="Princess Kia Magical Learning Adventures" />
       </section>
 
-      <section className="welcome section castleSoft">
-        <p className="script">Hi Royals!</p>
+      <section className="welcome section">
+        <p className="eyebrow">Hi Royals! 💖</p>
         <h1>Welcome to the Princess Kia Kingdom</h1>
-        <p>Learning is magical when we sing, count, read, create, and explore together.</p>
+        <p>
+          Magical learning adventures for little royals through songs, phonics,
+          colors, numbers, stories, and printable activities.
+        </p>
         <div className="buttons">
-          <a className="button primary" href="/royal-library">Open the Royal Library</a>
-          <a className="button secondary" href="/watch">Watch Princess Kia</a>
+          <a className="button primary" href="#watch">Watch on YouTube</a>
+          <a className="button secondary" href="#library">Explore the Royal Library</a>
         </div>
       </section>
 
-      <section className="section" id="library">
-        <p className="script">Choose Your Magical Door</p>
-        <h2>Royal Library</h2>
-        <p>Every door opens to a new learning adventure for Little Royals.</p>
-        <div className="doorGrid">
-          {rooms.map((room) => (
-            <a className="doorCard" href={room.href} key={room.title}>
-              <span className="roomEmoji">{room.emoji}</span>
-              <img src={room.image} alt={room.title} />
+      <section className="section pink" id="learn">
+        <p className="eyebrow">Explore the Kingdom</p>
+        <h2>Learning Rooms</h2>
+        <div className="grid rooms">
+          {learningRooms.map((room) => (
+            <article className="card" key={room.title}>
+              <div className="icon">{room.emoji}</div>
               <h3>{room.title}</h3>
-              <p className="roomSubtitle">{room.subtitle}</p>
               <p>{room.text}</p>
-              <span className="explore">👑 Explore</span>
-            </a>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="section split pinkPanel" id="about">
-        <img className="featurePhoto" src="/images/princess-heart-hands-green.jpeg" alt="Princess Kia making a heart with her hands" />
+      <section className="section split" id="watch">
         <div>
-          <p className="script">Meet Princess Kia</p>
-          <h2>Magical learning adventures for Little Royals.</h2>
-          <p>Princess Kia helps children learn through songs, phonics, stories, colors, numbers, creativity, kindness, and confidence.</p>
-          <a className="button primary" href="/meet-princess-kia">Meet Princess Kia</a>
+          <p className="eyebrow">Royal Theater</p>
+          <h2>Watch & Learn</h2>
+          <p>
+            Join Princess Kia for joyful preschool learning videos, songs,
+            phonics, calendar time, colors, and magical adventures.
+          </p>
+          <a className="button primary" href="https://www.youtube.com/@princesskia" target="_blank">Visit YouTube Channel</a>
+        </div>
+        <div className="videoCard">
+          <div className="play">▶</div>
+          <p>Featured Princess Kia Video</p>
         </div>
       </section>
 
-      <section className="section" id="boutique">
-        <p className="script">Royal Boutique</p>
-        <h2>Coming Soon</h2>
-        <p>Workbooks, coloring books, learning packs, shirts, mugs, backpacks, and more royal magic.</p>
-        <img className="wideImage" src="/images/brand-merch.jpeg" alt="Princess Kia merchandise mockups" />
+      <section className="section library" id="library">
+        <p className="eyebrow">Free Royal Downloads</p>
+        <h2>Royal Library</h2>
+        <p>Printable worksheets, coloring pages, and learning activities for little royals.</p>
+        <div className="downloadRow">
+          <span>Color Worksheets</span>
+          <span>Letter Practice</span>
+          <span>Counting Pages</span>
+          <span>Coloring Pages</span>
+        </div>
+        <a className="button secondary" href="#contact">Request Downloads</a>
       </section>
-      <Footer />
+
+      <section className="section pink" id="boutique">
+        <p className="eyebrow">Shop the Royal Collection</p>
+        <h2>Royal Boutique</h2>
+        <div className="grid products">
+          {products.map((product) => (
+            <article className="product" key={product}>
+              <div className="book">👑</div>
+              <h3>{product}</h3>
+              <p>Coming soon</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section split" id="about">
+        <div className="portrait">👸🏽</div>
+        <div>
+          <p className="eyebrow">Meet Princess Kia</p>
+          <h2>Learning is magical when we do it together.</h2>
+          <p>
+            Princess Kia helps little royals learn through songs, phonics,
+            storybook adventures, and creative activities made with love.
+          </p>
+          <a className="button primary" href="#contact">Collaborate with Princess Kia</a>
+        </div>
+      </section>
+
+      <section className="newsletter" id="contact">
+        <h2>Join the Royal Family</h2>
+        <p>Get updates, new videos, and free printable activities.</p>
+        <form>
+          <input placeholder="Your email address" />
+          <button type="button">Join Now 👑</button>
+        </form>
+      </section>
+
+      <footer>
+        <p>👑 Princess Kia Magical Learning Adventures</p>
+        <p>Keep learning, keep exploring, and stayyyy royal! 💖</p>
+      </footer>
     </main>
-  );
-}
-
-function Nav() {
-  return (
-    <nav className="nav">
-      <a className="brand" href="/">Princess Kia</a>
-      <div className="navLinks">
-        <a href="/">Home</a>
-        <a href="/royal-library">Royal Library</a>
-        <a href="/watch">Watch</a>
-        <a href="/meet-princess-kia">Meet Kia</a>
-      </div>
-    </nav>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <p>👑 Princess Kia Magical Learning Adventures</p>
-      <p>Keep learning, keep exploring, and stayyyy royal! 💖</p>
-    </footer>
   );
 }
